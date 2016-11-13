@@ -1,7 +1,17 @@
 PShape hero, body, cape, arm1, arm2, head;
+float bx;
+float by;
+int heroSize = 75;
+boolean overHero = false;
+boolean locked = false;
+float xOffset = 0.0; 
+float yOffset = 0.0; 
 void setup() {
   
   size (700,400);
+  bx = width;
+  by = height;
+  
   hero = createShape(GROUP);
   
   
@@ -17,7 +27,7 @@ void setup() {
   body.setFill(color(105));
   hero.addChild(body);
     
-    head = createShape(ELLIPSE , 480, 320, 150,150);
+    head = createShape(ELLIPSE , 480, 30, 150,150);
     head.setFill(color(300));
     hero.addChild(head);
     
@@ -32,4 +42,38 @@ void setup() {
 void draw() {
   
   shape(hero);
+    if (mouseX > bx-heroSize && mouseX < bx+heroSize && 
+      mouseY > by-heroSize && mouseY < by+heroSize) {
+    overHero = true;  
+    if(!locked) { 
+      stroke(255); 
+      fill(153);
+    } 
+  } else {
+    stroke(153);
+    fill(153);
+    overHero = false;
+  }
+}
+
+void mousePressed() {
+  if(overHero) { 
+    locked = true; 
+  } else {
+    locked = false;
+  }
+  xOffset = mouseX-bx; 
+  yOffset = mouseY-by; 
+
+}
+
+void mouseDragged() {
+  if(locked) {
+    bx = mouseX-xOffset; 
+    by = mouseY-yOffset; 
+  }
+}
+
+void mouseReleased() {
+  locked = false;
 }
