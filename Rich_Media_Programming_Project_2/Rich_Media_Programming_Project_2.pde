@@ -1,9 +1,22 @@
 import ddf.minim.*;
 import ddf.minim.analysis.*;
+
+Minim minim;
+AudioPlayer song;
+FFT fft;
 PShape hero, body, cape, arm1, arm2, head;
 void setup() {
   
   size (700,400);
+  minim = new Minim(this);
+  song = minim.loadFile("Look, up in the sky! It's a bird, it's a plane, it's....mp3");
+  song.play();
+  
+   fft = new FFT(song.bufferSize(), song.sampleRate());
+  
+  println("song.bufferSize is: " + song.bufferSize());
+  println("song.sampleRate is: " + song.sampleRate());
+  
   hero = createShape(GROUP);
   
   
