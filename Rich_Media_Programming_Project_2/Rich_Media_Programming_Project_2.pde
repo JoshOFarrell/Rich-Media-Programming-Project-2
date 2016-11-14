@@ -1,3 +1,5 @@
+import ddf.minim.*;
+import ddf.minim.analysis.*;
 PShape hero, body, cape, arm1, arm2, head;
 void setup() {
   
