@@ -7,7 +7,7 @@ Capture vid;
 Minim minim;
 AudioPlayer song;
 FFT fft;
-PShape hero, body, cape, arm1, arm2, head;
+PShape hero, body, cape, arm1, arm2, head, symbol;
 void setup() {
   
   size (900,400);
@@ -30,17 +30,21 @@ void setup() {
     cape.setFill(color(150));
     hero.addChild(cape);
     
-    arm2 = createShape(RECT, 450, 350, 150, 40);
+    arm2 = createShape(RECT, 450, 380, 150, 40);
    arm2.setFill(color(255));
    hero.addChild(arm2);
 
-  body = createShape(RECT , 150, 200, 350, 270);
+  body = createShape(RECT , 130, 200, 350, 270);
   body.setFill(color(105));
   hero.addChild(body);
     
     head = createShape(ELLIPSE , 500, 320, 150,150);
     head.setFill(color(300));
     hero.addChild(head);
+    
+    symbol = createShape(RECT, 130, 200, 20, 40);
+    symbol.setFill(color(805));
+    hero.addChild(symbol);
     
     arm1 = createShape(RECT , 400, 200, 150, 40);
     arm1.setFill(color(255));
@@ -51,9 +55,10 @@ void setup() {
 }
 
 void draw() {
-  
+  background(211);
+  vid.read();
+  image(vid,190,180);
   shape(hero);
-vid.read();
-  image(vid,50,50);
+
  
 }
