@@ -57,8 +57,9 @@ void setup() {
 void draw() {
   background(740);
   vid.read();
+  tint(255,mouseX,mouseY);
   image(vid,190,180);
-  shape(hero);
+  shape(hero, mouseX,mouseY);
 
  
 }
