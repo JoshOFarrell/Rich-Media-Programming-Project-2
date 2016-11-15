@@ -7,10 +7,14 @@ Capture vid;
 Minim minim;
 AudioPlayer song;
 FFT fft;
-PShape hero, body, cape, arm1, arm2, head, symbol;
+PShape hero, body, cape, arm1, arm2, head;
+PShape building;
 void setup() {
   
-  size (900,400);
+  size (1900,800);
+  
+ 
+  
   minim = new Minim(this);
   song = minim.loadFile("Look, up in the sky! It's a bird, it's a plane, it's....mp3");
   song.play();
@@ -23,6 +27,11 @@ void setup() {
   vid = new Capture(this,640,360,30);
   vid.start();
   
+  
+  building = createShape(RECT,50, 0, 690, 1970);
+  building.setFill(color(170));
+ 
+  
   hero = createShape(GROUP);
   
   
@@ -34,19 +43,15 @@ void setup() {
    arm2.setFill(color(255));
    hero.addChild(arm2);
 
-  body = createShape(RECT , 130, 200, 350, 270);
+  body = createShape(RECT , 130, 200, 350, 170);
   body.setFill(color(105));
   hero.addChild(body);
     
-    head = createShape(ELLIPSE , 500, 320, 150,150);
-    head.setFill(color(300));
+    head = createShape(ELLIPSE , 500, 300, 150,150);
+    head.setFill(color(255));
     hero.addChild(head);
     
-    symbol = createShape(TRIANGLE, 110, 200, 20, 40, 100, 150);
-    symbol.setFill(color(805));
-    hero.addChild(symbol);
-    
-    arm1 = createShape(RECT , 400, 200, 150, 40);
+    arm1 = createShape(RECT , 400, 150, 150, 40);
     arm1.setFill(color(255));
     hero.addChild(arm1);
     
@@ -56,9 +61,10 @@ void setup() {
 
 void draw() {
   background(740);
+  shape(building);
   vid.read();
   tint(255,mouseX,mouseY);
-  image(vid,190,180);
+  image(vid,40,10);
   shape(hero, mouseX,mouseY);
 
  
