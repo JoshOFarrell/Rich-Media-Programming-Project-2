@@ -42,7 +42,7 @@ void setup() {
     head.setFill(color(300));
     hero.addChild(head);
     
-    symbol = createShape(RECT, 130, 200, 20, 40);
+    symbol = createShape(TRIANGLE, 110, 200, 20, 40, 100, 150);
     symbol.setFill(color(805));
     hero.addChild(symbol);
     
@@ -55,7 +55,7 @@ void setup() {
 }
 
 void draw() {
-  background(211);
+  background(740);
   vid.read();
   image(vid,190,180);
   shape(hero);
