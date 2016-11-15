@@ -47,4 +47,11 @@ void setup() {
 void draw() {
   
   shape(hero);
+   if (mousePressed) {
+   fill(245);
+ } else {
+   fill(245);
+ }
+ shape(mouseX, mouseY, 80, 80);
+ 
 }
