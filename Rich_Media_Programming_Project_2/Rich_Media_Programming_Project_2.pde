@@ -2,13 +2,15 @@ import ddf.minim.*;
 import ddf.minim.analysis.*;
 import processing.video.*;
 
+Capture vid;
+
 Minim minim;
 AudioPlayer song;
 FFT fft;
 PShape hero, body, cape, arm1, arm2, head;
 void setup() {
   
-  size (700,400);
+  size (900,400);
   minim = new Minim(this);
   song = minim.loadFile("Look, up in the sky! It's a bird, it's a plane, it's....mp3");
   song.play();
@@ -17,6 +19,9 @@ void setup() {
   
   println("song.bufferSize is: " + song.bufferSize());
   println("song.sampleRate is: " + song.sampleRate());
+  
+  vid = new Capture(this,640,360,30);
+  vid.start();
   
   hero = createShape(GROUP);
   
@@ -33,7 +38,7 @@ void setup() {
   body.setFill(color(105));
   hero.addChild(body);
     
-    head = createShape(ELLIPSE , 480, 320, 150,150);
+    head = createShape(ELLIPSE , 500, 320, 150,150);
     head.setFill(color(300));
     hero.addChild(head);
     
@@ -48,6 +53,7 @@ void setup() {
 void draw() {
   
   shape(hero);
-
+vid.read();
+  image(vid,50,50);
  
 }
