@@ -7,13 +7,14 @@ Capture vid;
 Minim minim;
 AudioPlayer song;
 FFT fft;
+PFont f;
 PShape hero, body, cape, arm1, arm2, head;
 PShape building;
 void setup() {
   
   size (1900,800);
   
- 
+ f = createFont("Arial",10,true);
   
   minim = new Minim(this);
   song = minim.loadFile("Look, up in the sky! It's a bird, it's a plane, it's....mp3");
@@ -61,10 +62,13 @@ void setup() {
 
 void draw() {
   background(740);
+ 
   shape(building);
   vid.read();
   tint(255,mouseX,mouseY);
   image(vid,40,10);
+    textFont(f,100);
+ text("Metro News", 50, 460);
   shape(hero, mouseX,mouseY);
 
  
