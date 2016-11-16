@@ -14,7 +14,7 @@ void setup() {
   
   size (1900,800);
   
- f = createFont("Arial",10,true);
+ f = createFont("Arial Bold",10,true);
   
   minim = new Minim(this);
   song = minim.loadFile("Look, up in the sky! It's a bird, it's a plane, it's....mp3");
@@ -29,7 +29,7 @@ void setup() {
   vid.start();
   
   
-  building = createShape(RECT,50, 0, 690, 1970);
+  building = createShape(RECT,30, 0, 690, 1970);
   building.setFill(color(170));
  
   
@@ -67,8 +67,10 @@ void draw() {
   vid.read();
   tint(255,mouseX,mouseY);
   image(vid,40,10);
-    textFont(f,100);
+  
+    textFont(f,50);
  text("Metro News", 50, 460);
+ 
   shape(hero, mouseX,mouseY);
 
  
