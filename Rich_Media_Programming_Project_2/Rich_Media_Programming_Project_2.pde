@@ -73,5 +73,5 @@ void draw() {
  
   shape(hero, mouseX,mouseY);
 
- saveFrame();
+ saveFrame("hero-#####.jpeg");
 }
