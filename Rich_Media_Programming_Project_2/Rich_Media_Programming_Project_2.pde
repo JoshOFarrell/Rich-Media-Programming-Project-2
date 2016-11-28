@@ -56,12 +56,14 @@ void setup() {
     arm1.setFill(color(255));
     hero.addChild(arm1);
     
-   
+   /*PImage img;
+img = loadImage("MovingClouds2");
+image(img, 0, 0);*/
    
 }
 
 void draw() {
-  background(740);
+  background(0);
  
   shape(building);
   vid.read();
