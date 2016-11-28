@@ -12,7 +12,7 @@ PShape hero, body, cape, arm1, arm2, head;
 PShape building;
 void setup() {
   
-  size (1900,800);
+  size (2100,2970);
   
  f = createFont("Arial Bold",10,true);
   
@@ -73,5 +73,5 @@ void draw() {
  
   shape(hero, mouseX,mouseY);
 
- 
+ saveFrame();
 }
