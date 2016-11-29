@@ -6,6 +6,7 @@ Capture vid;
 
 Minim minim;
 AudioPlayer song;
+
 FFT fft;
 PFont f;
 PShape hero, body, cape, arm1, arm2, head;
@@ -16,16 +17,8 @@ void setup() {
   size (2100,670);
   
  f = createFont("Arial Bold",10,true);
+ 
   
-  /*minim = new Minim(this);
-  song = minim.loadFile("Look, up in the sky! It's a bird, it's a plane, it's....mp3");
-  song.play();
-  
-   fft = new FFT(song.bufferSize(), song.sampleRate());
-  
-  println("song.bufferSize is: " + song.bufferSize());
-  println("song.sampleRate is: " + song.sampleRate());
-  */
   vid = new Capture(this,640,360,30);
   vid.start();
   
@@ -87,6 +80,16 @@ void setup() {
     arm1.setFill(color(255));
     hero.addChild(arm1);
     
+     minim = new Minim(this);
+  song = minim.loadFile("Superman Theme • John Williams.mp3");
+  song.play();
+  
+   fft = new FFT(song.bufferSize(), song.sampleRate());
+  
+  println("song.bufferSize is: " + song.bufferSize());
+  println("song.sampleRate is: " + song.sampleRate());
+  
+  
      
    
 //img = loadImage("clouds-that-look-like-cotton-balls_62557eb9-9d3c-43d8-9e88-8b5662829adf");
@@ -108,4 +111,9 @@ void draw() {
   shape(hero, mouseX,mouseY);
 
  saveFrame("hero-#####.jpeg");
+ 
+
+}
+
+void stop(){
 }
