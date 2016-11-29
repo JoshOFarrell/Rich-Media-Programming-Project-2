@@ -10,6 +10,8 @@ FFT fft;
 PFont f;
 PShape hero, body, cape, arm1, arm2, head;
 PShape building;
+int xPos=200;
+int xDir=1;
 //PImage img;
 void setup() {
   
@@ -57,6 +59,7 @@ void setup() {
     arm1.setFill(color(255));
     hero.addChild(arm1);
     
+     
    
 //img = loadImage("clouds-that-look-like-cotton-balls_62557eb9-9d3c-43d8-9e88-8b5662829adf");
 
@@ -65,7 +68,14 @@ void setup() {
 
 void draw() {
   background(740);
- 
+  
+ ellipse(xPos, 200, 40, 40);
+  xPos=xPos+xDir;
+  if (xPos>width-20 || xPos<20)
+  {
+    xDir=-xDir;
+  }
+  
   shape(building);
   vid.read();
   tint(255,mouseX,mouseY);
