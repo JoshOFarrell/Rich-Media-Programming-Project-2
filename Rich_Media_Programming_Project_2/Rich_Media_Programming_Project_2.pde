@@ -10,6 +10,7 @@ FFT fft;
 PFont f;
 PShape hero, body, cape, arm1, arm2, head;
 PShape building;
+//PImage img;
 void setup() {
   
   size (2100,2970);
@@ -56,14 +57,14 @@ void setup() {
     arm1.setFill(color(255));
     hero.addChild(arm1);
     
-   /*PImage img;
-img = loadImage("MovingClouds2");
-image(img, 0, 0);*/
+   
+//img = loadImage("clouds-that-look-like-cotton-balls_62557eb9-9d3c-43d8-9e88-8b5662829adf");
+
    
 }
 
 void draw() {
-  background(0);
+  background(740);
  
   shape(building);
   vid.read();
