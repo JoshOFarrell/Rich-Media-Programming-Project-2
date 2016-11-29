@@ -9,13 +9,11 @@ AudioPlayer song;
 FFT fft;
 PFont f;
 PShape hero, body, cape, arm1, arm2, head;
-PShape building;
-int xPos=200;
-int xDir=1;
+PShape building, metro, background;
 //PImage img;
 void setup() {
   
-  size (2100,2970);
+  size (2100,670);
   
  f = createFont("Arial Bold",10,true);
   
@@ -32,8 +30,11 @@ void setup() {
   vid.start();
   
   
-  building = createShape(RECT,30, 0, 690, 1970);
-  building.setFill(color(170));
+  building = createShape(GROUP);
+  
+  metro= createShape(RECT,30, 0, 690, 1970);
+  metro.setFill(color(170));
+  building.addChild(metro);
  
   
   hero = createShape(GROUP);
@@ -68,13 +69,6 @@ void setup() {
 
 void draw() {
   background(740);
-  
- ellipse(xPos, 200, 40, 40);
-  xPos=xPos+xDir;
-  if (xPos>width-20 || xPos<20)
-  {
-    xDir=-xDir;
-  }
   
   shape(building);
   vid.read();
