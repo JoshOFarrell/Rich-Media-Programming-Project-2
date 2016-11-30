@@ -1,17 +1,18 @@
 import ddf.minim.*;
 import ddf.minim.analysis.*;
 import processing.video.*;
-
+//----------------------------
 Capture vid;
 
 Minim minim;
 AudioPlayer song;
-
+//------------------
 FFT fft;
 PFont f;
 PShape hero, body, cape, arm1, arm2, head;
 PShape building, metro, background1, window1, window2, window3, window4, window5, window6;
 //PImage img;
+//--------------------------------------
 void setup() {
   
   size (2100,670);
@@ -56,7 +57,7 @@ void setup() {
   window6 = createShape(RECT, 1300, 490, 100, 50);
   window6.setFill(color(255));
   building.addChild(window6);
-  
+  //---------------------------------------
   hero = createShape(GROUP);
   
   
@@ -79,7 +80,7 @@ void setup() {
     arm1 = createShape(RECT , 400, 150, 150, 40);
     arm1.setFill(color(255));
     hero.addChild(arm1);
-    
+    //--------------------------------------------------
      minim = new Minim(this);
   song = minim.loadFile("Superman Theme • John Williams.mp3");
   song.play();
@@ -89,7 +90,7 @@ void setup() {
   println("song.bufferSize is: " + song.bufferSize());
   println("song.sampleRate is: " + song.sampleRate());
   
-  
+  //-------------------------------
      
    
 //img = loadImage("clouds-that-look-like-cotton-balls_62557eb9-9d3c-43d8-9e88-8b5662829adf");
@@ -109,7 +110,8 @@ void draw() {
  text("Metro News", 50, 460);
  
   shape(hero, mouseX,mouseY);
-
+  
+ 
  saveFrame("hero-#####.jpeg");
  
 
